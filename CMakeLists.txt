@@ -3,4 +3,4 @@ project( image_processor )
 find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 add_executable( image_processor image_processor.cpp )
-target_link_libraries( image_processor ${OpenCV_LIBS} )
+target_link_libraries( image_processor ${OpenCV_LIBS} )Know How to Check Video Devices in Linux
