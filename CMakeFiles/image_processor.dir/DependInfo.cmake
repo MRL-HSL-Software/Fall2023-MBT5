@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/amcoder/Code/MRL/Beginner_Tasks/Task_6/image_processor.cpp" "CMakeFiles/image_processor.dir/image_processor.cpp.o" "gcc" "CMakeFiles/image_processor.dir/image_processor.cpp.o.d"
+  "/home/amcoder/Code/MRL/Beginner_Tasks/Task_5/image_processor.cpp" "CMakeFiles/image_processor.dir/image_processor.cpp.o" "gcc" "CMakeFiles/image_processor.dir/image_processor.cpp.o.d"
   )
 
 # Targets to which this target links.

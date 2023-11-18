@@ -1,5 +1,5 @@
 CMakeFiles/image_processor.dir/image_processor.cpp.o: \
- /home/amcoder/Code/MRL/Beginner_Tasks/Task_6/image_processor.cpp \
+ /home/amcoder/Code/MRL/Beginner_Tasks/Task_5/image_processor.cpp \
  /usr/include/stdc-predef.h /usr/local/include/opencv4/opencv2/opencv.hpp \
  /usr/local/include/opencv4/opencv2/opencv_modules.hpp \
  /usr/local/include/opencv4/opencv2/core.hpp \

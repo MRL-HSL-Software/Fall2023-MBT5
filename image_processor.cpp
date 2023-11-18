@@ -1,44 +1,47 @@
 #include <opencv2/opencv.hpp>
 
+using namespace std;
+
+class FrameProcessor {
+private:
+    cv::VideoCapture capture;
+
+public:
+    FrameProcessor(int cameraID) {
+        capture.open(cameraID); 
+        if (!capture.isOpened()) {
+            cout << "Failed to open the camera" << endl;
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    void capture_and_show(string original_fram_name, string gray_frame_name) {
+        cv::Mat frame, grayscaleFrame;
+
+        while (true) {
+            capture >> frame;
+
+            if (frame.empty()) {
+                cout << "Captured frame is empty" << endl;
+                break;
+            }
+
+            cv::imshow(original_fram_name, frame);
+            cv::cvtColor(frame, grayscaleFrame, cv::COLOR_BGR2GRAY);
+            cv::imshow(gray_frame_name, grayscaleFrame);
+
+            if (cv::waitKey(1) == 'q') {
+                break;
+            }
+        }
+
+        capture.release();
+        cv::destroyAllWindows();
+    }
+};
+
 int main() {
-    // Open the default camera (usually 0 or -1)
-    cv::VideoCapture cap(0);
-
-    if (!cap.isOpened()) {
-        std::cout << "Error opening camera" << std::endl;
-        return -1;
-    }
-
-    cv::Mat frame, grayFrame;
-
-    cv::namedWindow("Original", cv::WINDOW_NORMAL);
-    cv::namedWindow("Grayscale", cv::WINDOW_NORMAL);
-
-    while (true) {
-        // Capture frame-by-frame
-        cap >> frame;
-
-        if (frame.empty()) {
-            std::cout << "End of video stream" << std::endl;
-            break;
-        }
-
-        // Convert frame to grayscale
-        cv::cvtColor(frame, grayFrame, cv::COLOR_BGR2GRAY);
-
-        // Display the original and grayscale frames
-        cv::imshow("Original", frame);
-        cv::imshow("Grayscale", grayFrame);
-
-        // Break the loop if 'q' is pressed
-        if (cv::waitKey(1) == 'q') {
-            break;
-        }
-    }
-
-    // Release the camera and close windows
-    cap.release();
-    cv::destroyAllWindows();
-
+    FrameProcessor processor(0);
+    processor.capture_and_show("Hello", "World");
     return 0;
 }
